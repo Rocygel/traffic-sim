@@ -10,7 +10,7 @@ class Graph:
         Initialize variable graph based on nodes/edges
         """
         n = len(nodes)
-        adjacency_matrix = np.zeros(n, n)
+        adjacency_matrix = np.zeros((n, n))
 
         for u, v, weight in edges:
             adjacency_matrix[u, v] = weight
@@ -19,6 +19,7 @@ class Graph:
         self.graph = nx.from_numpy_array(adjacency_matrix)
 
         #positions = 
+        positions = {i: coord for i, coord in enumerate(nodes)}
         nx.set_node_attributes(self.graph, positions, "pos")
 
     def positions(self):

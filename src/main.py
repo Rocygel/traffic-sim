@@ -1,28 +1,24 @@
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import networkx as nx
 from graph import Graph
 
 NODES = [(3, 2), (4, 2), (1, 6), (7, 3)]
 EDGES = [(1, 3, 2), (0, 2, 3), (0, 1, 4)]
 
-def visual(graph):
+def visual(graph, ax):
     ax.clear()
     pos = graph.positions()
-    nx_draw_graph = graph.graph
 
-    nx.draw(nx_draw_graph)
-
-# bidirectional graph
-for u, v, weight in edges:
-    adjacency_matrix[u, v] = weight
-    adjacency_matrix[v, u] = weight
-
-#construct graph
-graph = nx.from_numpy_matrix(adjacency_matrix)
+    nx.draw(graph.graph,
+            pos=pos,
+            ax=ax,
+            width=widths,
+            with_labels=True,
+            node_size=500,
+            )
 
 
 def main():
-
     graph = Graph(nodes = NODES, edges = EDGES)
 
     fig, ax = plt.subplots()
